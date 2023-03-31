@@ -14,7 +14,6 @@
                     <th style="width:10%;"></th>  
                 </tr>
             </thead>   
-
             <tbody>
                 @php $total = 0 @endphp
                 @if(session('cart'))
@@ -25,7 +24,7 @@
                     <tr data-id="{{$id}}">
                         <td data-th="Product">
                             <div class="row">
-                                <div class="col-sm-3 hidden-xs"><img src="{{asset('img')}}/{{$details['product_img']}}">  </div>
+                                <div class="col-sm-3 hidden-xs cart-img-container"><img src="{{asset('img')}}/{{$details['product_img']}}">  </div>
                                 <div class="col-sm-9">
                                     <h4 class="nomargin">{{$details['product_name']}}</h4>
                                 </div>
@@ -75,18 +74,20 @@
             e.preventDefault();
 
             var ele =$(this);
-
+            // alert();
             if(confirm("Do you really want to remove?")){
+                $(this).parent().parent().remove();
                 $.ajax({
                     url:'{{route('remove_from_cart')}}',
                     method: "DELETE",
                     data:{
                         _token:'{{csrf_token()}}',
-                        id: ele.parents("tr").attr("data-id")
+                        id: $(this).parent().parent().attr("data-id")
                     },
-                    success: function (response{
-                        window.location.reload();
-                    })
+                    success: function (response){
+                        alert(response);
+                       
+                    }
                 })
             }
         });
