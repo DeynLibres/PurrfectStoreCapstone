@@ -37,6 +37,11 @@ Route::get('/payment', function () {
     return view('payment');
 });
 
+Route::get('/admin', function () {
+
+    return view('admin');
+});
+
 /*****CART*****/
 Route::get('/cart', function () {
 
@@ -49,18 +54,14 @@ Route::get('/', [PurrfectProductsController::class, 'index']);
 
 Route::get('cart', [PurrfectProductsController::class, 'cart'])->name('cart');
 
+Route::get('payment', [PurrfectProductsController::class, 'payment'])->name('cart');
+
 Route::get('add-to-cart/{id}',[PurrfectProductsController::class, 'addToCart'])->name('add_to_cart');
 
 Route::patch('update-cart',[PurrfectProductsController::class, 'update'])->name('update_cart');
 
 Route::delete('remove-from-cart',[PurrfectProductsController::class,'remove'])->name('remove_from_cart');
-
 /**********/
-
-
-
-
-
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');

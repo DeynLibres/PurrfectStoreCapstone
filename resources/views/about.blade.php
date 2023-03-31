@@ -10,9 +10,7 @@
 	<li class="nav-item">
 		<a class="nav-link {{request()->is('contact') ? 'active'  :null}}"  href="{{url('contact')}}" role="tab">Contacts</a>
 	</li>
-	<li class="nav-item">
-		<a class="nav-link {{request()->is('team') ? 'active' :null }}"  href="{{url('team')}}" role="tab">Team</a>
-	</li>
+	
 </ul><!-- Tab panes -->
 <div class="tab-content">
 	<div class="tab-pane  {{request()->is('about') ? 'active' :null }}" id="{{url('about')}}" role="tabpanel">
@@ -206,28 +204,13 @@
 					  </div>
 				</div>
 			</div>
+			<br>
+			<br>
+			<br>
 
 		</div>
 		{{-- /***********/ --}}
-	
-		<div class="tab-pane {{request()->is('team') ? 'active' :null }}" id="{{url('team')}}" role="tabpanel">
-	
 
-			<div class="container-xl img-container">
-				<img class="" src="{{asset('tabs-img/team.jpg')}}" style="" alt="">
-			</div>
-			<div class="container-xl  p-0 mission">
-				<div class="tab-pane-header">
-					<div class="tab-pane-header-img-container-team">
-						<img src="{{asset('tabs-img/icon-team.png')}}" alt="">
-					</div>
-					<div class="tab-pane-header-desc">
-					<h1>Our Team</h1>
-					<p>Our leadership team is always looking for new ways to wow our customers, and that desire is shared by the whole Purrfect team.</p>
-					</div>
-				</div>
-			</div>
-	</div>
 	
 
 	

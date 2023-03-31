@@ -15,6 +15,11 @@ class PurrfectProductsController extends Controller
     return view('cart');
    }
 
+   public function payment(){
+    return view('payment');
+   }
+
+
    public function addToCart($id)
    {
     $purrfect_products = PurrfectProducts::findOrFail($id);
@@ -22,8 +27,7 @@ class PurrfectProductsController extends Controller
     $cart = session()->get('cart', []);
 
     if(isset($cart[$id])){
-        $cart[$id]['quantity']++;
-        
+        $cart[$id]['quantity']++;  
     }else{
         $cart[$id] = [
             "product_name" => $purrfect_products->product_name,

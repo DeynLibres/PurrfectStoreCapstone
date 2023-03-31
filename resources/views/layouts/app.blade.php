@@ -43,6 +43,12 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{url('/')}}">Shop</a>
+                        </li>
+
+
+
                         <!-- Authentication Links -->
                         <li class="nav-item">
                             <a class="nav-link" href="{{url('/about')}}">About</a>

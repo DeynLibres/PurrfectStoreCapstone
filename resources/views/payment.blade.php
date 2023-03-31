@@ -20,19 +20,6 @@
                   <input type="text" id="adr" name="address" placeholder="542 W. 15th Street">
                   <label for="city"><i class="fa fa-institution"></i> City</label>
                   <input type="text" id="city" name="city" placeholder="New York">
-      
-                  <div class="row">
-                    <div class="col-50">
-                      <label for="state">State</label>
-                      <input type="text" id="state" name="state" placeholder="NY">
-                    </div>
-                    <div class="col-50">
-                      <label for="zip">Zip</label>
-                      <input type="text" id="zip" name="zip" placeholder="10001">
-                    </div>
-                  </div>
-                </div>
-      
                 <div class="col-50">
                   <h3>Payment</h3>
                   <label for="fname">Accepted Cards</label>
@@ -65,27 +52,46 @@
               <label>
                 <input type="checkbox" checked="checked" name="sameadr"> Shipping address same as billing
               </label>
-              <input type="submit" value="Continue to checkout" class="btn">
+              <input type="submit" value="Continue to checkout" class="btn btn-info">
             </form>
           </div>
         </div>
-      
-        <div class="col-25">
+        <br>
+        <br>
+        <br>
+        <h4 style="font-size:2rem; font-weight:600;">Cart</h4>
+        <div class="col-25 cartz">
           <div class="container">
-            <h4>Cart
-              <span class="price" style="color:black">
-                <i class="fa fa-shopping-cart"></i>
-                <b>4</b>
-              </span>
-            </h4>
-            <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-            <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-            <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-            <p><a href="#">Product 4</a> <span class="price">$2</span></p>
-            <hr>
-            <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+           
+            @if(session('cart'))
+            @foreach(session('cart') as $id => $details)
+            <div class="row cart-detail">
+                    <div class="col-lg-4 col-sm-4 col-4 cart-detail-img">
+                        <img src="{{asset('img')}}/{{$details['product_img']}}" alt="">
+                    </div>
+                    <div class="col-lg-8 col-sm-8 col-8 cart-detail-product">
+                        <p>{{$details['product_name']}}</p>
+                        <span class="price text-info"> ${{$details['product_price']}}</span>    <span class="count"> Quantity:{{$details['quantity']}}</span>
+
+                    </div>
+                    
+            </div>
+            @endforeach
+
+            @endif
+            <div class="row total-header-section">
+                @php $total = 0 @endphp
+                @foreach((array) session('cart') as $id => $details)
+                @php $total += $details['product_price'] * $details['quantity'] @endphp
+                @endforeach
+        </div>
+        
           </div>
         </div>
+
+        <div class="text-end mx-5">
+            <p class="T">Total: <span class="text-info">${{$total}}</span></p>    
+    </div>  
       </div>
 </div>
 

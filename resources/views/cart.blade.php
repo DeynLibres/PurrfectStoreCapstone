@@ -22,19 +22,15 @@
                     @php
                         $total += $details['product_price'] * $details ['quantity']
                     @endphp
-
                     <tr data-id="{{$id}}">
-                        <td data-th = "Product">
+                        <td data-th="Product">
                             <div class="row">
-                                <div class="col-sm-3 hidden-xs"><img src="{{asset('img')}}/{{$details['product_img']}}" width="100" height="120" alt="">  </div>
+                                <div class="col-sm-3 hidden-xs"><img src="{{asset('img')}}/{{$details['product_img']}}">  </div>
                                 <div class="col-sm-9">
                                     <h4 class="nomargin">{{$details['product_name']}}</h4>
                                 </div>
-                         
                             </div>
-
                         </td>
-
                         <td data-th="Price">${{$details['product_price']}}
 
                         </td>
@@ -62,7 +58,7 @@
                             <td colspan="5" class="text-right" style="">
                                 <a href="{{url('/')}}" class="btn btn-danger"> <i class="fa-solid fa-arrow-left"></i>Continue Shopping</a>
 
-                                <button class="btn btn-sucess"> <i class="fa-solid fa-money-bill"></i>Check Out</button>
+                                <a href="{{url('/payment')}}" class="btn btn-info"> <i class="fa-solid fa-money-bill"></i>Check Out</a>
 
                             </td>
                         </tr>

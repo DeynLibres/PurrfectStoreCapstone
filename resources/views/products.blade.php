@@ -7,7 +7,7 @@
 
 
             @foreach ($purrfect_products as $purrfect_product)
-            <div class="col-xs-18 col-sm-4 col-md-3" style="margin-top: 10px" >
+            <div class="col-xs-18 col-sm-6 col-md-3" style="margin-top: 10px" >
                <div class="img_thumbnail productlist">
                     <img src="{{asset('img')}}/{{$purrfect_product->product_img}}" alt="img-fluid">
                     <div class="caption">
